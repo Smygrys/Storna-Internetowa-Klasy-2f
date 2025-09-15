@@ -25,6 +25,13 @@ header {
   height: 100px;
 }
 
+#clock {
+  margin-left: 20px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+
 /* --- Switcher grup --- */
 .switcher {
   text-align: center;
@@ -150,4 +157,5 @@ footer {
   font-size: 14px;
   color: #555;
 }
+
 
