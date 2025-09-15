@@ -26,16 +26,6 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-
-// --- Toggle update log ---
-const toggleButton = document.getElementById("toggle-update-log");
-const updateLog = document.getElementById("update-log");
-
-toggleButton.addEventListener("click", () => {
-  updateLog.style.display = (updateLog.style.display === "none" || updateLog.style.display === "") ? "block" : "none";
-});
-
-
 // --- Przełączanie grup ---
 document.getElementById("btn-gr1").addEventListener("click", () => {
   document.body.classList.remove("gr2-active");
@@ -48,41 +38,6 @@ document.getElementById("btn-gr2").addEventListener("click", () => {
   document.getElementById("btn-gr2").classList.add("active");
   document.getElementById("btn-gr1").classList.remove("active");
 });
-
-
-// --- Licznik online (Firebase) ---
-
-const firebaseConfig = {
-  apiKey: "AIzaSyC3KORgygWHumB2ihi-bNXm4Xi4oNcMOEU",
-  authDomain: "plan-2f.firebaseapp.com",
-  databaseURL: "https://plan-2f-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "plan-2f",
-  storageBucket: "plan-2f.firebasestorage.app",
-  messagingSenderId: "872812572425",
-  appId: "1:872812572425:web:a7f1580fc115486fc16dd8",
-  measurementId: "G-BWZY17K58L"
-};
-
-firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
-
-const onlineRef = db.ref("onlineUsers");
-const sessionId = Math.random().toString(36).substring(2);
-
-// Dodaj użytkownika do online
-onlineRef.child(sessionId).set(true);
-
-// Usuń przy wyjściu ze strony
-window.addEventListener("beforeunload", () => {
-  onlineRef.child(sessionId).remove();
-});
-
-// Wyświetl licznik online w czasie rzeczywistym
-onlineRef.on("value", snapshot => {
-  const count = snapshot.numChildren();
-  document.getElementById("online-count").textContent = count;
-});
-
 
 // --- Podświetlanie aktualnej lekcji ---
 function highlightCurrentLesson() {
@@ -105,5 +60,6 @@ function highlightCurrentLesson() {
 }
 highlightCurrentLesson();
 setInterval(highlightCurrentLesson, 30000);
+
 
 
