@@ -21,8 +21,8 @@ header {
 }
 
 .class-icon {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
 }
 
 /* --- Switcher grup --- */
@@ -150,5 +150,6 @@ footer {
   font-size: 14px;
   color: #555;
 }
+
 
 
