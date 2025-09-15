@@ -26,6 +26,37 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
+
+// Odlicznik do wakacji
+function updateCountdown() {
+  const now = new Date();
+  // ustaw datę wakacji (np. 26 czerwca 2026)
+  const vacation = new Date("2026-06-26T00:00:00");
+
+  const diffMs = vacation - now;
+  if(diffMs <= 0){
+    document.getElementById("countdown").textContent = "WAKACJE!!! 🎉";
+    return;
+  }
+
+  const diffDays = Math.floor(diffMs / (1000*60*60*24));
+  const diffHours = Math.floor((diffMs % (1000*60*60*24)) / (1000*60*60));
+  const diffMinutes = Math.floor((diffMs % (1000*60*60)) / (1000*60));
+  const diffSeconds = Math.floor((diffMs % (1000*60)) / 1000);
+
+  document.getElementById("countdown").textContent =
+    `Do wakacji pozostało: ${diffDays} dni, ${diffHours} godzin, ${diffMinutes} minut, ${diffSeconds} sekund`;
+}
+
+// odświeżanie co sekundę
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+
+// odświeżanie co minutę
+updateCountdown();
+setInterval(updateCountdown, 60000);
+
 // --- Przełączanie grup ---
 document.getElementById("btn-gr1").addEventListener("click", () => {
   document.body.classList.remove("gr2-active");
@@ -38,6 +69,7 @@ document.getElementById("btn-gr2").addEventListener("click", () => {
   document.getElementById("btn-gr2").classList.add("active");
   document.getElementById("btn-gr1").classList.remove("active");
 });
+
 
 // --- Podświetlanie aktualnej lekcji ---
 function highlightCurrentLesson() {
@@ -60,6 +92,3 @@ function highlightCurrentLesson() {
 }
 highlightCurrentLesson();
 setInterval(highlightCurrentLesson, 30000);
-
-
-
