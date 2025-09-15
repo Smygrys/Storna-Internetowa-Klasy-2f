@@ -7,14 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Plan lekcji klasy 2F – elektryk w roku szkolnym 2025/2026.">
   <meta name="author" content="Smygrys">
-  <link rel="icon" href="icon1.png">
+  <link rel="icon" href="image/icon1.png">
 </head>
 <body>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-database-compat.js"></script>
+
 
 <header>
-  <img src="icon1.png" alt="Ikona klasy 2F" class="class-icon">
-  ⚡ Strona Internetowa klasy 2F – elektryk
+  <img src="image/icon1.png" alt="Ikona klasy 2F" class="class-icon">
+  ⚡ Strona Internetowa Klasy 2F – elektryk
   <div id="clock" style="margin-left: 20px; font-size: 16px;"></div>
+
 </header>
 
 <table>
@@ -159,12 +164,31 @@
 </div>
 
 
+<main>
+  <!-- Przycisk do update log -->
+  <section id="update-section">
+    <button id="toggle-update-log">Pokaż / Ukryj Update Log</button>
+    <div id="update-log" style="display: none;">
+      <ul>
+        <h2>15.09.2025</h2>
+        <li>Plan lekcji dla grupy 2F</li>
+        <li>Dodano licznik osób online</li>
+        <li>Dodano przyciski przełączania grup</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="online-users">
+  <p>Obecnie ogląda stronę: <span id="online-count">0</span> osób</p>
+</section>
+
+</main>
+
 <footer>
 📌 Obowiązuje od: 15 września 2025
 </footer>
 
+
 <script src="script.js"></script>
 </body>
 </html>
-
-
