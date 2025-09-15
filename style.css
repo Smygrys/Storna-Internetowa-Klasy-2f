@@ -1,0 +1,153 @@
+/* --- Ogólne ustawienia --- */
+body {
+  background: #f5f7fa;
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  color: #222;
+}
+
+header {
+  padding: 20px;
+  font-size: 26px;
+  font-weight: 600;
+  text-align: center;
+  background: #2563eb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.class-icon {
+  width: 100px;
+  height: 100px;
+}
+
+/* --- Switcher grup --- */
+.switcher {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.switcher button {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px 18px;
+  margin: 0 8px;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.switcher button:hover {
+  background: #f1f5f9;
+}
+
+.switcher button.active {
+  background: #2563eb;
+  border-color: #1d4ed8;
+  color: white;
+}
+
+/* --- Tabela planu lekcji --- */
+table {
+  width: 95%;
+  margin: 0 auto 30px auto;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 14px;
+  text-align: center;
+}
+
+th {
+  background: #f1f5f9;
+  font-weight: 600;
+}
+
+tr:nth-child(even) td {
+  background: #fafafa;
+}
+
+/* --- Kolory przedmiotów --- */
+.subject {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.subject-ele { background: #e0f2f1; }       /* elektronika, układy, maszyny */
+.subject-eob { background: #ffe4e1; }       /* e-obywatel (już istnieje, ale zostawiam dla spójności) */
+.subject-ang { background: #ffccbc; }       /* j. angielski (już istnieje) */
+.subject-ger { background: #c5cae9; }       /* j. niemiecki (już istnieje) */
+.subject-math { background: #c8e6c9; }      /* matematyka (już istnieje) */
+.subject-biz { background: #ffe0b2; }       /* biznes i zarządzanie (już istnieje) */
+.subject-hist { background: #d1c4e9; }      /* historia (już istnieje) */
+.subject-pol { background: #f8bbd0; }       /* j. polski (już istnieje) */
+.subject-phys { background: #b3e5fc; }      /* fizyka (już istnieje) */
+.subject-chem { background: #fff9c4; }      /* chemia (już istnieje) */
+.subject-geog { background: #b2ebf2; }      /* geografia (już istnieje) */
+.subject-infor { background: #fff3e0; }     /* informatyka (już istnieje) */
+.subject-wf { background: #f3e5f5; }        /* WF (już istnieje) */
+.subject-hist { background: #d1c4e9; }      /* godzina wychowawcza (historia) */
+.subject-eob { background: #ffe4e1; }
+.subject-rel { background: #e0f7fa; }
+.subject-infor { background: #fff3e0; }
+.subject-progra { background: #e8f5e9; }
+.subject-wf { background: #f3e5f5; }
+.subject-chem { background: #fff9c4; }
+.subject-hist { background: #d1c4e9; }
+.subject-geog { background: #b2ebf2; }
+.subject-ang { background: #ffccbc; }
+.subject-math { background: #c8e6c9; }
+.subject-biz { background: #ffe0b2; }
+.subject-pol { background: #f8bbd0; }
+.subject-phys { background: #b3e5fc; }
+.subject-db { background: #d7ccc8; }
+.subject-ger { background: #c5cae9; }
+
+
+.subject.room::before {
+  content: "🏫";
+  margin-right: 4px;
+}
+
+/* --- Podświetlenie aktualnej lekcji --- */
+.current-lesson {
+  background-color: #ffe082 !important;
+  transition: background 0.3s;
+}
+
+.current-lesson td.time::after {
+  content: " ⏰ kończy się o " attr(data-end);
+  font-weight: bold;
+  color: #d84315;
+  margin-left: 4px;
+}
+
+/* --- Ukrywanie grup --- */
+.gr1 { display: inline; }
+.gr2 { display: none; }
+
+.gr2-active .gr1 { display: none; }
+.gr2-active .gr2 { display: inline; }
+
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #f1f5f9;
+  font-size: 14px;
+  color: #555;
+}
+
