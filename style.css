@@ -1,79 +1,60 @@
 /* --- Ogólne ustawienia --- */
-body {
-  background: #f5f7fa;
-  font-family: "Segoe UI", Arial, sans-serif;
+* {
+  box-sizing: border-box;
   margin: 0;
-  color: #222;
+  padding: 0;
 }
 
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f5f7fa;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* --- Header --- */
 header {
-  padding: 20px;
-  font-size: 26px;
-  font-weight: 600;
-  text-align: center;
-  background: #2563eb;
-  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  background: #2563eb;
+  color: white;
+  flex-wrap: wrap;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-#clock {
-  margin-left: 20px;
-  font-size: 16px;
-  font-weight: normal;
-}
-#update-section {
-  width: 90%;
-  margin: 20px auto;
-  text-align: center;
-}
-
-#toggle-update-log {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 8px;
-  border: none;
-  background-color: #2563eb;
-  color: white;
-  transition: 0.2s;
-}
-
-#toggle-update-log:hover {
-  background-color: #1d4ed8;
-}
-
-#update-log {
-  margin-top: 15px;
-  background: #fff3e0;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  text-align: left;
-}
-
-#update-log ul {
-  margin: 0;
-  padding-left: 20px;
-}
-
-#update-log ul h2 {
-    font-size: 20px;
-}
-
-
 .class-icon {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+#clock {
+  font-size: 16px;
+  margin-left: 10px;
+  white-space: nowrap;
 }
 
 /* --- Switcher grup --- */
 .switcher {
   text-align: center;
-  margin: 20px 0;
+  margin: 15px 0;
 }
 
 .switcher button {
@@ -83,7 +64,7 @@ header {
   margin: 0 8px;
   cursor: pointer;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: 14px;
   transition: 0.2s;
 }
 
@@ -100,6 +81,7 @@ header {
 /* --- Tabela planu lekcji --- */
 table {
   width: 95%;
+  max-width: 1200px;
   margin: 0 auto 30px auto;
   border-collapse: collapse;
   background: white;
@@ -110,9 +92,10 @@ table {
 
 th, td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 10px 6px;
   font-size: 14px;
   text-align: center;
+  vertical-align: middle;
 }
 
 th {
@@ -128,40 +111,28 @@ tr:nth-child(even) td {
 .subject {
   display: inline-flex;
   align-items: center;
-  padding: 2px 6px;
+  justify-content: center;
+  padding: 3px 6px;
   border-radius: 6px;
+  font-size: 13px;
 }
 
-.subject-ele { background: #e0f2f1; }       /* elektronika, układy, maszyny */
-.subject-eob { background: #ffe4e1; }       /* e-obywatel (już istnieje, ale zostawiam dla spójności) */
-.subject-ang { background: #ffccbc; }       /* j. angielski (już istnieje) */
-.subject-ger { background: #c5cae9; }       /* j. niemiecki (już istnieje) */
-.subject-math { background: #c8e6c9; }      /* matematyka (już istnieje) */
-.subject-biz { background: #ffe0b2; }       /* biznes i zarządzanie (już istnieje) */
-.subject-hist { background: #d1c4e9; }      /* historia (już istnieje) */
-.subject-pol { background: #f8bbd0; }       /* j. polski (już istnieje) */
-.subject-phys { background: #b3e5fc; }      /* fizyka (już istnieje) */
-.subject-chem { background: #fff9c4; }      /* chemia (już istnieje) */
-.subject-geog { background: #b2ebf2; }      /* geografia (już istnieje) */
-.subject-infor { background: #fff3e0; }     /* informatyka (już istnieje) */
-.subject-wf { background: #f3e5f5; }        /* WF (już istnieje) */
-.subject-hist { background: #d1c4e9; }      /* godzina wychowawcza (historia) */
-.subject-eob { background: #ffe4e1; }
+.subject-ele { background: #e0f2f1; }       
+.subject-eob { background: #ffe4e1; }       
+.subject-ang { background: #ffccbc; }       
+.subject-ger { background: #c5cae9; }       
+.subject-math { background: #c8e6c9; }      
+.subject-biz { background: #ffe0b2; }       
+.subject-hist { background: #d1c4e9; }      
+.subject-pol { background: #f8bbd0; }       
+.subject-phys { background: #b3e5fc; }      
+.subject-chem { background: #fff9c4; }      
+.subject-geog { background: #b2ebf2; }      
+.subject-infor { background: #fff3e0; }     
+.subject-wf { background: #f3e5f5; }        
 .subject-rel { background: #e0f7fa; }
-.subject-infor { background: #fff3e0; }
 .subject-progra { background: #e8f5e9; }
-.subject-wf { background: #f3e5f5; }
-.subject-chem { background: #fff9c4; }
-.subject-hist { background: #d1c4e9; }
-.subject-geog { background: #b2ebf2; }
-.subject-ang { background: #ffccbc; }
-.subject-math { background: #c8e6c9; }
-.subject-biz { background: #ffe0b2; }
-.subject-pol { background: #f8bbd0; }
-.subject-phys { background: #b3e5fc; }
 .subject-db { background: #d7ccc8; }
-.subject-ger { background: #c5cae9; }
-
 
 .subject.room::before {
   content: "🏫";
@@ -174,11 +145,10 @@ tr:nth-child(even) td {
   transition: background 0.3s;
 }
 
-.current-lesson td.time::after {
-  content: " ⏰ kończy się o " attr(data-end);
-  font-weight: bold;
+.lesson-countdown {
+  margin-top: 4px;
+  font-size: 12px;
   color: #d84315;
-  margin-left: 4px;
 }
 
 /* --- Ukrywanie grup --- */
@@ -188,21 +158,125 @@ tr:nth-child(even) td {
 .gr2-active .gr1 { display: none; }
 .gr2-active .gr2 { display: inline; }
 
+/* --- Countdown do wakacji --- */
+#countdown {
+  text-align: center;
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* --- Footer --- */
 footer {
   text-align: center;
-  padding: 15px;
-  background: #f1f5f9;
+  padding: 15px 10px;
+  background: #1f2937;
+  color: white;
   font-size: 14px;
-  color: #555;
-  margin-top: 30px;
+  margin-top: auto;
 }
 
 footer a {
-  color: #2563eb;
-  text-decoration: none;
+  color: #93c5fd;
 }
 
-footer a:hover {
-  text-decoration: underline;
+/* --- Responsywność --- */
+@media screen and (max-width: 1024px) {
+  table { font-size: 13px; }
 }
 
+@media screen and (max-width: 768px) {
+  header { font-size: 20px; }
+  .class-icon { width: 60px; height: 60px; }
+  table th, table td { padding: 8px 4px; font-size: 12px; }
+}
+
+@media screen and (max-width: 480px) {
+  header { flex-direction: column; gap: 10px; font-size: 18px; }
+  #clock { margin-left: 0; }
+  .switcher button { padding: 8px 12px; font-size: 12px; margin: 4px 3px; }
+  table { width: 100%; font-size: 11px; }
+  td, th { padding: 6px 4px; }
+}
+
+/* --- Scroll dla tabeli jeśli ma być na telefonie --- */
+.table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* --- Małe poprawki --- */
+td.time { font-weight: bold; }
+th { white-space: nowrap; }
+.subject span { white-space: nowrap; }
+
+/* --- Dark Theme --- */
+body.dark-theme {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.dark-theme header {
+  background-color: #1f1f1f;
+  color: #f1f1f1;
+}
+
+body.dark-theme footer {
+  background-color: #1a1a1a;
+  color: #ccc;
+}
+
+body.dark-theme a {
+  color: #93c5fd;
+}
+
+body.dark-theme table {
+  background-color: #1a1a1a;
+  color: #f1f1f1;
+  border-color: #333;
+}
+
+body.dark-theme th {
+  background-color: #2c2c2c;
+}
+
+body.dark-theme tr:nth-child(even) td {
+  background-color: #222;
+}
+
+body.dark-theme td {
+  border-color: #333;
+}
+
+/* --- Wszystkie kafelki przedmiotów ciemne --- */
+body.dark-theme .subject {
+  background-color: #333 !important;
+  color: #f1f1f1 !important;
+}
+
+/* --- Aktualna lekcja w dark theme --- */
+body.dark-theme td.current-lesson {
+  background-color: #2563eb !important;
+  color: #fff;
+}
+
+/* --- Countdown dla lekcji --- */
+body.dark-theme .lesson-countdown {
+  color: #ffb74d;
+}
+
+/* --- Switcher grup --- */
+body.dark-theme .switcher button {
+  background-color: #2c2c2c;
+  color: #f1f1f1;
+  border-color: #555;
+}
+
+body.dark-theme .switcher button.active {
+  background-color: #2563eb;
+  color: #fff;
+  border-color: #1d4ed8;
+}
+
+body.dark-theme .switcher button:hover {
+  background-color: #3a3a3a;
+}
